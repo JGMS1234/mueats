@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import MenuBar from './components/MenuBar';
+import LocationField from './components/LocationField';
 import Logo from './icon.svg';
 import Image from 'next/image';
 import './globals.css';
@@ -27,6 +28,8 @@ export default function RootLayout({ children }) {
 						className='size-22 md:size-28'
 					/>
 					<MenuBar />
+					<LocationField />
+					<div>Cart</div>
 					<span className='rounded-full p-2 bg-green-400'>
 						<span className='w-12 h-12 bg-red-300'></span>
 					</span>
