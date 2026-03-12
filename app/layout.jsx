@@ -1,14 +1,17 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import MenuBar from './components/MenuBar';
 import LocationField from './components/LocationField';
+import User from './components/User';
 import Logo from './icon.svg';
+import Cart from '../public/icons/shoppingCart.svg';
+import UserIco from '../public/icons/userIcon.svg';
 import Image from 'next/image';
 import './globals.css';
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
+const NunitoSans = Inter({
 	subsets: ['latin'],
+	variable: '--font-nunito-sans',
+	display: 'swap',
 });
 
 export const metadata = {
@@ -20,21 +23,30 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col-reverse sm:flex-col mx-12`}>
+				className={`${NunitoSans.variable} antialiased flex flex-col-reverse sm:flex-col mx-12 mt-2 gap-2`}>
 				<nav className='flex justify-between items-center w-full h-[10vh]'>
 					<Image
 						src={Logo}
 						alt='MU Eats Logo'
 						className='size-22 md:size-28'
+						priority
 					/>
-					<MenuBar />
-					<LocationField />
-					<div>Cart</div>
-					<span className='rounded-full p-2 bg-green-400'>
-						<span className='w-12 h-12 bg-red-300'></span>
-					</span>
+					<div className='flex items-center gap-8'>
+						<MenuBar />
+						<LocationField />
+						<Image
+							src={Cart}
+							alt='Shopping Cart'
+							className='size-18 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'
+						/>
+						<Image
+							src={UserIco}
+							alt='User icon'
+							className='size-12 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'
+						/>
+					</div>
 				</nav>
-				<main className='h-[80vh]'>{children}</main>
+				<main className='h-[80vh] overflow-y-auto'>{children}</main>
 			</body>
 		</html>
 	);

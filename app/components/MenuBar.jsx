@@ -1,26 +1,51 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import clsx from 'clsx';
 
 const MenuBar = () => {
 	const [currentPage, setCurrentPage] = useState('home');
 
-	// useEffect(() => {
-	// 	const path = usePathname();
-	// 	const page = path.split('/')[-1] || 'home';
-	// 	setCurrentPage(page);
-	// }, [usePathname()]);
+	useEffect(() => {
+		const currPage = window.location.pathname.split('/').pop() || 'home';
+		setCurrentPage(currPage);
+	}, [usePathname()]);
 	return (
-		<div className='flex gap-8 items-center'>
-			<span
-				className={clsx([
-					currentPage == 'home' && 'rounded-2xl p-2 bg-(--primary-colour)',
-				])}>
+		<div className='flex gap-8 items-center mr-[10vw]'>
+			<Link
+				href='/'
+				className={clsx(
+					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
+					[
+						currentPage == 'home' &&
+							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
+					],
+				)}>
 				Home
-			</span>
-			<span>Restaurants</span>
-			<span>Orders</span>
+			</Link>
+			<Link
+				href='/restaurants'
+				className={clsx(
+					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
+					[
+						currentPage == 'restaurants' &&
+							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
+					],
+				)}>
+				Restaurants
+			</Link>
+			<Link
+				href='/orders'
+				className={clsx(
+					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
+					[
+						currentPage == 'orders' &&
+							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
+					],
+				)}>
+				Orders
+			</Link>
 		</div>
 	);
 };
