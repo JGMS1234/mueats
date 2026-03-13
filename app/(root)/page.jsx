@@ -1,6 +1,6 @@
 export default function Home() {
 	return (
-		<div className='flex flex-col items-center gap-4 h-full'>
+		<div className='flex flex-col items-center gap-4 h-full pt-2'>
 			<h1 className='font-bold text-2xl'>
 				Welcome to MU's #1 food-ordering app
 			</h1>
