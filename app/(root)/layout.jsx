@@ -1,10 +1,10 @@
 import { Inter } from 'next/font/google';
-import MenuBar from './components/MenuBar';
-import LocationField from './components/LocationField';
-import User from './components/User';
+import MenuBar from '../components/MenuBar';
+import LocationField from '../components/LocationField';
+import User from '../components/User';
 import Logo from './icon.svg';
-import Cart from '../public/icons/shoppingCart.svg';
-import UserIco from '../public/icons/userIcon.svg';
+import Cart from '../../public/icons/shoppingCart.svg';
+import UserIco from '../../public/icons/userIcon.svg';
 import Image from 'next/image';
 import './globals.css';
 
