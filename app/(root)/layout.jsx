@@ -8,9 +8,9 @@ import UserIco from '../../public/icons/userIcon.svg';
 import Image from 'next/image';
 import './globals.css';
 
-const NunitoSans = Inter({
+const FontInter = Inter({
 	subsets: ['latin'],
-	variable: '--font-nunito-sans',
+	variable: '--font-inter',
 	display: 'swap',
 });
 
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
 			<body
-				className={`${NunitoSans.variable} antialiased flex flex-col-reverse sm:flex-col mx-12 mt-2 gap-2`}>
+				className={`${FontInter.variable} antialiased flex flex-col-reverse sm:flex-col mx-12 mt-2 gap-2`}>
 				<nav className='flex justify-between items-center w-full h-[10vh]'>
 					<Image
 						src={Logo}
