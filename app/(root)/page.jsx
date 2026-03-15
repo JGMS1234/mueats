@@ -1,3 +1,4 @@
+import Search from '../components/SearchBar';
 export default function Home() {
 	return (
 		<div className='flex flex-col items-center gap-4 h-full pt-2'>
@@ -9,7 +10,11 @@ export default function Home() {
 				delivery. Look below for suggested dishes, or head over to the
 				Restaurants tab for more
 			</p>
-			<div className='h-[80%]'></div>
+			<div className='flex-1 flex flex-col w-full items-start'>
+				<span className='w-[30vw]'>
+					<Search />
+				</span>
+			</div>
 		</div>
 	);
 }
