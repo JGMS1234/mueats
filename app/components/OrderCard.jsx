@@ -33,11 +33,11 @@ const OrderCard = ({
 				],
 				[
 					position != orderIdx &&
-						'bg-(--primary-colour)/75 hover:bg-(--primary-colour) hover:scale-85',
+						'bg-(--primary-colour)/75 hover:bg-(--primary-colour) hover:scale-94',
 				],
 			)}
 			onClick={() => onclick()}>
-			<div className='h-14 w-20 flex items-center justify-center hover:scale-[1.025] active:scale-100 border-solid rounded-sm border border-slate-50 transition-all ease-in-out duration-300'>
+			<div className='h-14 w-20 flex items-center justify-center hover:scale-[1.025] active:scale-100 rounded-2xl bg-white transition-all ease-in-out duration-300'>
 				Icon
 			</div>
 			<div className='flex flex-col gap-2 w-72'>

@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
 			<body
-				className={`${FontInter.variable} antialiased flex flex-col-reverse sm:flex-col mx-12 mt-2 gap-2`}>
+				className={`${FontInter.variable} antialiased flex flex-col-reverse sm:flex-col gap-6 mx-12 mt-2`}>
 				<nav className='flex justify-between items-center w-full h-[10vh]'>
 					<Image
 						src={Logo}

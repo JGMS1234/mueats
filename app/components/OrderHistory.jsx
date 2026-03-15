@@ -1,6 +1,7 @@
 'use client';
 import { React, useState } from 'react';
 import OrderCard from './OrderCard';
+import SearchBar from './SearchBar';
 
 const OrderHistory = ({ orders }) => {
 	const [selectedOrder, setSelectedOrder] = useState(0);
@@ -10,8 +11,8 @@ const OrderHistory = ({ orders }) => {
 			<div className='flex flex-col w-[40%] h-full items-start rounded-2xl gap-3 p-4 bg-(--secondary-colour)'>
 				<h1 className='font-semibold text-2xl'>Order History</h1>
 				<p>Some of your recent orders are shown below</p>
-				<span>Search</span>
-				<div className='flex flex-col gap-2 h-full w-full overflow-y-auto pr-3'>
+				<SearchBar />
+				<div className='flex flex-col gap-2 flex-1 mt-6 w-full overflow-y-auto pr-3'>
 					{orders.map((order, index) => (
 						<OrderCard
 							key={index}
