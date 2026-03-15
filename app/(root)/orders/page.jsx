@@ -11,6 +11,13 @@ const page = () => {
 					currency: 'HK$',
 					campusName: 'MC',
 					createdAt: new Date(),
+					items: [
+						{
+							name: 'Burger',
+							qty: 2,
+							price: 5.49,
+						},
+					],
 				},
 				{
 					orderName: 'Order 2',
@@ -18,6 +25,13 @@ const page = () => {
 					currency: 'HK$',
 					campusName: 'JCC',
 					createdAt: new Date(),
+					items: [
+						{
+							name: 'Fries',
+							qty: 1,
+							price: 3.99,
+						},
+					],
 				},
 				{
 					orderName: 'Order 3',
@@ -25,6 +39,13 @@ const page = () => {
 					currency: 'HK$',
 					campusName: 'IOH',
 					createdAt: new Date(),
+					items: [
+						{
+							name: 'Fries',
+							qty: 1,
+							price: 3.99,
+						},
+					],
 				},
 				{
 					orderName: 'Order 4',
@@ -32,6 +53,13 @@ const page = () => {
 					currency: 'HK$',
 					campusName: 'IOH',
 					createdAt: new Date(),
+					items: [
+						{
+							name: 'Fries',
+							qty: 1,
+							price: 3.99,
+						},
+					],
 				},
 			]}
 		/>
