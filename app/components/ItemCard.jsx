@@ -15,7 +15,7 @@ const ItemCard = ({
 	return (
 		<div
 			className={clsx(
-				'flex flex-col justify-between text-left drop-shadow-md w-full h-full flex-1 p-4 bg-(--primary-colour) rounded-3xl text-nowrap',
+				'flex flex-col justify-between text-left drop-shadow-md w-full h-full flex-1 p-4 bg-(--primary-colour)/50 rounded-3xl text-nowrap',
 				// [!show && 'pt-10 h-[calc(100%-2rem)]']
 			)}>
 			<div className='flex flex-col gap-2 pr-2 pb-2 w-full items-center h-[80%] overflow-y-auto relative'>
@@ -69,7 +69,7 @@ const ItemCard = ({
 				</div>
 			)}
 			{(!isWarning || isEdit) && (
-				<div className='flex self-center justify-between drop-shadow-lg fade-in-animation mt-2 py-2 px-4 w-full rounded-3xl bg-(--accent) backdrop-blur-lg'>
+				<div className='flex self-center justify-between drop-shadow-lg fade-in-animation mt-2 py-2 px-4 w-full rounded-3xl bg-(--primary-colour)/75 backdrop-blur-lg'>
 					<span>Grand Total</span>
 					<span>
 						{formatCurrency(

@@ -64,7 +64,7 @@ const OrderHistory = ({ orders }) => {
 					/>
 					<div
 						className={clsx(
-							'absolute md:bottom-0 md:left-3 flex text-base md:text-lg p-4 w-[90%] drop-shadow-md md:w-fit rounded-2xl bg-(--primary-colour)',
+							'absolute md:bottom-0 md:left-3 flex text-base md:text-lg p-4 w-[90%] drop-shadow-md md:w-fit rounded-2xl bg-(--primary-colour)/50 backdrop-blur-2xl',
 							[isToggled && 'top-6 translate-x-[-49.75%] ml-[50%]'],
 						)}>
 						<div className='h-10 w-14 md:h-14 md:w-20 mr-4 flex items-center justify-center border-solid rounded-sm border border-black'>
@@ -83,19 +83,13 @@ const OrderHistory = ({ orders }) => {
 							</span>
 						</div>
 					</div>
-					<div className='absolute hidden md:flex gap-2 drop-shadow-md bottom-0 right-3 px-2 py-1 text-sm font-semibold w-fit bg-(--primary-colour) rounded-xl'>
+					<div className='absolute hidden md:flex gap-2 drop-shadow-md bottom-0 right-3 px-2 py-1 text-sm font-semibold w-fit bg-(--accent)/75 backdrop-blur-2xl rounded-xl'>
 						{`${dateOrTIme(orders[selectedOrder].createdAt)}`}
 						<span>|</span>
-						<div>
-							Payment Method:{' '}
-							{formatCurrency(
-								orders[selectedOrder].amount,
-								orders[selectedOrder].currency,
-							)}
-						</div>
+						<div>Payment Method: {orders[selectedOrder].paymentMethod}</div>
 					</div>
 
-					<button className='text-sm absolute drop-shadow-md top-6 right-3 bg-(--accent) py-2 px-4 cursor-pointer hover:scale-105 active:scale-100 transition-all ease-in-out duration-300 rounded-2xl'>
+					<button className='text-sm absolute drop-shadow-md top-6 right-3 bg-(--primary-colour) backdrop-blur-lg py-2 px-4 cursor-pointer hover:scale-105 active:scale-100 transition-all ease-in-out duration-300 rounded-2xl'>
 						Select items to reorder
 					</button>
 				</div>

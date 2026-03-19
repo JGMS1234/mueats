@@ -11,6 +11,7 @@ const page = () => {
 					currency: 'HK$',
 					campusName: 'MC',
 					createdAt: new Date(),
+					paymentMethod: 'Credit Card',
 					items: [
 						{
 							name: 'Burger',
@@ -25,6 +26,7 @@ const page = () => {
 					currency: 'HK$',
 					campusName: 'JCC',
 					createdAt: new Date(),
+					paymentMethod: 'Credit Card',
 					items: [
 						{
 							name: 'Fries',
@@ -39,6 +41,7 @@ const page = () => {
 					currency: 'HK$',
 					campusName: 'IOH',
 					createdAt: new Date(),
+					paymentMethod: 'Credit Card',
 					items: [
 						{
 							name: 'Fries',
@@ -53,6 +56,7 @@ const page = () => {
 					currency: 'HK$',
 					campusName: 'IOH',
 					createdAt: new Date(),
+					paymentMethod: 'Credit Card',
 					items: [
 						{
 							name: 'Fries',
