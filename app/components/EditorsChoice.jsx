@@ -1,0 +1,29 @@
+import React from 'react';
+import Image from 'next/image';
+import Cafe from '../../public/images/Cafe.png';
+
+const EditorsChoice = () => {
+  return (
+    <div className='py-8'>
+        <div className='w-120 h-30 mt-4 mb-12 flex gap-2 relative rounded-4xl items-center py-2 bg-(--primary-colour) cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+            <Image
+            src={Cafe}
+            alt='Cafe Image'
+            className='size-20 absolute left-6 rounded-2xl'
+            />
+            <span className='pl-30 size-4'></span>
+            <div className='px-4 py-6 h-30 w-90 bg-(--secondary-colour) rounded-r-2xl text-sm'>
+                <div className='flex align-items: center'>
+                    <span className='opacity-75 font-semibold'>Main Campus Canteen</span>
+                    <span className='pl-12 opacity-75 font-semibold'>HK$ 100.5</span>
+                </div>
+                <div className='mt-2 flex gap-2'>
+                    <span className='opacity-75 font-semibold'>Donner Kebab; Chicken tikka biriyani </span>
+                </div>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default EditorsChoice;
