@@ -1,11 +1,13 @@
-import SearchItem from '../components/SearchItem';
+import SearchBar from '../components/SearchBar';
 import Reorder from '../components/Reorder';
 import EditorsChoice from '../components/EditorsChoice';
+import Image from 'next/image';
+import ShowMoreBtn from '../../public/icons/showMore.svg';
 
 export default function Home() {
 	return (
-		<div>
-			<div className='flex flex-col items-center gap-4 h-full pt-2'>
+		<div className='flex flex-col gap-6 h-full'>
+			<div className='flex flex-col items-center gap-4 pt-2'>
 				<h1 className='font-bold text-2xl'>
 					Welcome to MU's #1 food-ordering app
 				</h1>
@@ -14,16 +16,35 @@ export default function Home() {
 					delivery. Look below for suggested dishes, or head over to the
 					Restaurants tab for more
 				</p>
-				<div className='h-[80%]'></div>
 			</div>
-			<SearchItem />
-			Quick reorder
+			<span className='w-[30vw]'>
+				<SearchBar />
+			</span>
+			<div className='flex flex-col gap-2 overflow-y-auto'>
+				<div className='flex flex-col gap-6 mb-6'>
+					<div className='flex justify-between items-center px-2 cursor-pointer hover:bg-(--secondary-colour)/15 transition-all duration-200 ease-in-out'>
+						<span>Quick reorder</span>
+						<Image
+							src={ShowMoreBtn}
+							alt='show more'
+							className='size-8'
+						/>
+					</div>
+					<Reorder />
+				</div>
 
-			<Reorder />
-
-			Editor's choice
-
-			<EditorsChoice />
+				<div className='flex flex-col gap-6'>
+					<div className='flex justify-between items-center px-2 cursor-pointer hover:bg-(--secondary-colour)/15 transition-all duration-200 ease-in-out'>
+						<span>Editor's choice</span>
+						<Image
+							src={ShowMoreBtn}
+							alt='show more'
+							className='size-8'
+						/>
+					</div>
+					<EditorsChoice />
+				</div>
+			</div>
 		</div>
 	);
 }

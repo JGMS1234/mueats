@@ -1,4 +1,3 @@
-import React from 'react';
 import LocationIcon from '../../public/icons/locationIcon.svg';
 import DropDown from '../../public/icons/dropDown.svg';
 import Image from 'next/image';

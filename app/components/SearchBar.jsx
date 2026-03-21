@@ -1,10 +1,10 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import FilterBtn from '../../public/icons/filterIcon.svg';
 import SearchBtn from '../../public/icons/searchIcon.svg';
 import Image from 'next/image';
 
-const SearchBar = ({ handleSearch, handleFilter }) => {
+const SearchBar = ({ handleSearch, handleFilter, placeholder }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	return (
 		<div className='flex gap-2 justify-between pointer-events-auto items-center w-full'>
@@ -20,8 +20,8 @@ const SearchBar = ({ handleSearch, handleFilter }) => {
 						handleSearch(e.target.value);
 					}}
 					value={searchTerm}
-					placeholder='Search...'
-					className='w-full bg-(--secondary-colour) text-base font-medium placeholder:font-semibold px-2 py-1 placeholder:pl-2 rounded-3xl hover:scale-95 active:scale-100 transition-all ease-in-out duration-300 focus:ring-0 focus:scale-100 ring-slate-50'
+					placeholder={placeholder || 'Search for restaurants, dishes...'}
+					className='w-full bg-(--secondary-colour) placeholder:text-sm text-base font-medium placeholder:font-semibold px-2 py-1 placeholder:pl-2 rounded-3xl hover:scale-95 active:scale-100 transition-all ease-in-out duration-300 focus:ring-0 focus:scale-100 ring-slate-50'
 				/>
 			</div>
 

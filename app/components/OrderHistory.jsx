@@ -1,5 +1,5 @@
 'use client';
-import { React, useState } from 'react';
+import { useState } from 'react';
 import OrderCard from './OrderCard';
 import ItemCard from './ItemCard';
 import Image from 'next/image';
@@ -29,7 +29,7 @@ const OrderHistory = ({ orders }) => {
 			<div className='flex flex-col w-[40%] h-full items-start rounded-2xl gap-3 p-4 bg-(--secondary-colour)/50'>
 				<h1 className='font-semibold text-2xl'>Order History</h1>
 				<p>Some of your recent orders are shown below</p>
-				<SearchBar />
+				<SearchBar placeholder={'Search...'} />
 				<div className='flex flex-col gap-2 flex-1 mt-6 w-full overflow-y-auto pr-3'>
 					{orders.map((order, index) => (
 						<OrderCard
