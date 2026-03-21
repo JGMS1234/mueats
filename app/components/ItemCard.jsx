@@ -1,9 +1,6 @@
 'use client';
-import { formatCurrency, formatNumber } from '@/lib/utils';
+import { formatCurrency, formatNumber } from '../lib/utils';
 import clsx from 'clsx';
-import EditIcon from '@/icons/pencil (edit).svg';
-import DelIcon from '@/icons/bin 1 (delete).svg';
-import React from 'react';
 
 const ItemCard = ({
 	data,
@@ -18,7 +15,7 @@ const ItemCard = ({
 	return (
 		<div
 			className={clsx(
-				'flex flex-col justify-between text-left w-full h-full flex-1 p-4 bg-slate-400/25 rounded-xl backdrop-blur-lg text-nowrap',
+				'flex flex-col justify-between text-left drop-shadow-md w-full h-full flex-1 p-4 bg-(--primary-colour)/50 rounded-3xl text-nowrap',
 				// [!show && 'pt-10 h-[calc(100%-2rem)]']
 			)}>
 			<div className='flex flex-col gap-2 pr-2 pb-2 w-full items-center h-[80%] overflow-y-auto relative'>
@@ -63,33 +60,6 @@ const ItemCard = ({
 							</span>
 						))}
 					</div>
-					{show && (
-						<div className='flex flex-col gap-2 pl-3'>
-							{show && <span className='sticky top-0 self-end'>Action</span>}
-							{data.map((_, index) => (
-								<div
-									key={index}
-									className={clsx(
-										'text-xs flex items-center',
-										[show && 'gap-2'],
-										[!show && 'justify-center'],
-									)}>
-									<span
-										onClick={() => handleEditItem(index)}
-										className='bg-linear-to-tr from-slate-600 to-stone-800 px-2 py-1 rounded-md hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out'>
-										<EditIcon />
-									</span>
-									{show && (
-										<span
-											onClick={() => handleDeleteItem(index)}
-											className='bg-linear-to-tr from-slate-600 to-stone-800 px-2 py-1 rounded-md hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out'>
-											<DelIcon />
-										</span>
-									)}
-								</div>
-							))}
-						</div>
-					)}
 				</div>
 			</div>
 
@@ -99,7 +69,7 @@ const ItemCard = ({
 				</div>
 			)}
 			{(!isWarning || isEdit) && (
-				<div className='flex self-center justify-between fade-in-animation mt-2 p-2 w-full rounded-xl bg-linear-to-tr from-slate-700 to-stone-500'>
+				<div className='flex self-center justify-between drop-shadow-lg fade-in-animation mt-2 py-2 px-4 w-full rounded-3xl bg-(--primary-colour)/75 backdrop-blur-lg'>
 					<span>Grand Total</span>
 					<span>
 						{formatCurrency(

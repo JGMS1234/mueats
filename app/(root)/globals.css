@@ -1,17 +1,37 @@
 @import 'tailwindcss';
 
 :root {
-	--background: #ffffff;
 	--accent: #187abe;
 	--primary-colour: #c1ff72;
 	--secondary-colour: #efffda;
-	--foreground: #171717;
 }
 
-@theme inline {
+/* @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
-	--font-sans: var(--font-nunito-sans);
+} */
+
+/* width */
+::-webkit-scrollbar {
+	@apply w-0 h-0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	@apply rounded-sm bg-(--secondary-colour);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	@apply bg-(--accent) rounded-sm;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	@apply cursor-grab;
+}
+::-webkit-scrollbar-thumb:active {
+	@apply cursor-grabbing;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -20,8 +40,3 @@
 		--foreground: #ededed;
 	}
 } */
-
-body {
-	background: var(--background);
-	color: var(--foreground);
-}
