@@ -113,10 +113,7 @@ const OrderHistory = ({ orders }) => {
 					<ItemCard
 						data={orders[selectedOrder].items}
 						currency={orders[selectedOrder].currency}
-						// handleEditItem={(idx) => handleEdit('items', idx)}
-						isWarning={isWarning}
-						warning={warning}
-						// handleDeleteItem={(idx) => handleItemDelete(idx)}
+						isCart={false}
 					/>
 				</div>
 			</div>
