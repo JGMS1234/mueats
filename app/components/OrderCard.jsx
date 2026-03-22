@@ -1,7 +1,7 @@
 'use client';
 import { formatCurrency, formatTime, formatDate } from '../lib/utils';
 import clsx from 'clsx';
-import FoodLogo from '../(root)/icon.svg';
+import FoodLogo from '../../public/icons/icon.svg';
 import Image from 'next/image';
 
 const OrderCard = ({

@@ -2,11 +2,13 @@ import { Inter } from 'next/font/google';
 import MenuBar from '../components/MenuBar';
 import LocationField from '../components/LocationField';
 import User from '../components/User';
-import Logo from './icon.svg';
-import Cart from '../../public/icons/shoppingCart.svg';
+import Logo from '../../public/icons/icon.svg';
 import UserIco from '../../public/icons/userIcon.svg';
 import Image from 'next/image';
 import './globals.css';
+import ShoppingCard from '../components/ShoppingCart'
+import { CartProvider } from '../context/CartContext';
+
 
 const FontInter = Inter({
 	subsets: ['latin'],
@@ -20,10 +22,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
 	return (
 		<html lang='en'>
+
 			<body
 				className={`${FontInter.variable} antialiased flex flex-col-reverse sm:flex-col gap-6 mx-12 mt-2`}>
+				<CartProvider>
 				<nav className='flex justify-between items-center w-full h-[10vh]'>
 					<Image
 						src={Logo}
@@ -34,11 +39,8 @@ export default function RootLayout({ children }) {
 					<div className='flex items-center gap-8'>
 						<MenuBar />
 						<LocationField />
-						<Image
-							src={Cart}
-							alt='Shopping Cart'
-							className='size-18 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'
-						/>
+						<ShoppingCard />
+
 						<Image
 							src={UserIco}
 							alt='User icon'
@@ -46,7 +48,9 @@ export default function RootLayout({ children }) {
 						/>
 					</div>
 				</nav>
+				
 				<main className='h-[80vh] overflow-y-auto'>{children}</main>
+				</CartProvider>
 			</body>
 		</html>
 	);

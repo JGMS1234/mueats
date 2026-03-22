@@ -50,16 +50,7 @@ const ItemCard = ({
 							</span>
 						))}
 					</div>
-					<div className='flex flex-col gap-2 pr-3 text-right'>
-						<span className='sticky top-0'>{`Total (${currency})`}</span>
-						{data.map((item, index) => (
-							<span
-								key={index}
-								className='text-sm font-medium'>
-								{formatNumber(item.qty * item.price)}
-							</span>
-						))}
-					</div>
+					
 				</div>
 			</div>
 
