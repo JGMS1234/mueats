@@ -1,12 +1,15 @@
 'use client';
 import { formatCurrency, formatNumber } from '../lib/utils';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 const ItemCard = ({
 	data,
 	currency,
 	handleEditItem,
-	handleDeleteItem,
+	handleOrderDelete,
+	SetOrder,
+	isCart,
 	warning,
 	isWarning,
 	isEdit,
@@ -50,9 +53,34 @@ const ItemCard = ({
 							</span>
 						))}
 					</div>
+					{isCart ? (
+						<div className='flex flex-col gap-2 pr-3 text-right'>
+							<span className='sticky top-0'>Actions</span>
+							{data.map((_, index) => (
+								<span
+									key={index}
+									onClick={handleOrderDelete}
+									className='text-sm font-medium text-center bg-(--secondary-colour)/75 px-2 py-1 rounded-2xl hover:scale-105 active:scale-95 cursor-pointer transition-all ease-in-out duration-300'>
+									Delete
+								</span>
+							))}
+						</div>
+					) : (
+						<div className='flex flex-col gap-2 pr-3 text-right'>
+							<span className='sticky top-0'>{`Total (${currency})`}</span>
+							{data.map((item, index) => (
+								<span
+									key={index}
+									className='text-sm font-medium'>
+									{formatNumber(item.qty * item.price)}
+								</span>
+							))}
+						</div>
+					)}
 					
 				</div>
 			</div>
+			
 
 			{isWarning && !isEdit && (
 				<div className='bg-slate-400/25 text-nowrap absolute fade-in-animation bottom-8 left-[50%] translate-x-[-50%] px-4 rounded-xl backdrop-blur-lg'>
@@ -60,7 +88,7 @@ const ItemCard = ({
 				</div>
 			)}
 			{(!isWarning || isEdit) && (
-				<div className='flex self-center justify-between drop-shadow-lg fade-in-animation mt-2 py-2 px-4 w-full rounded-3xl bg-(--primary-colour)/75 backdrop-blur-lg'>
+				<div className='flex self-center justify-between drop-shadow-lg fade-in-animation mt-2 py-2 px-4 w-full rounded-3xl bg-(--secondary-colour)/75 backdrop-blur-lg'>
 					<span>Grand Total</span>
 					<span>
 						{formatCurrency(

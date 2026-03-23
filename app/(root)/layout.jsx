@@ -7,6 +7,7 @@ import UserIco from '../../public/icons/userIcon.svg';
 import Image from 'next/image';
 import './globals.css';
 import ShoppingCard from '../components/ShoppingCart'
+import Link  from 'next/link';
 import { CartProvider } from '../context/CartContext';
 
 
@@ -40,12 +41,14 @@ export default function RootLayout({ children }) {
 						<MenuBar />
 						<LocationField />
 						<ShoppingCard />
-
+					<Link
+						href='./UserSettings'>
 						<Image
 							src={UserIco}
 							alt='User icon'
 							className='size-12 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'
 						/>
+					</Link>
 					</div>
 				</nav>
 				

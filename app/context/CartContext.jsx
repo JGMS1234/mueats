@@ -20,8 +20,21 @@ export function CartProvider({children}) {
         },)
     }
 
+    function DeleteFromOrder(item) {
+        setOrders(prevOrders => {
+        const existing = prevOrders.find(order => order.id === item.id)
+        if(existing && existing.qty > 1) {
+            return prevOrders.map(order =>
+                order.id === item.id ? {...order, qty: order.qty - 1} : order
+            )
+        }
+        
+        return prevOrders.filter(order => order.id !== item.id)
+    });
+}
+
     return (
-        <CartContext.Provider value={{orders, AddToOrder}}>
+        <CartContext.Provider value={{orders, AddToOrder, DeleteFromOrder}}>
             {children}
         </CartContext.Provider>
     )
