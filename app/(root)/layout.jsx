@@ -1,13 +1,13 @@
 import { Inter } from 'next/font/google';
 import MenuBar from '../components/MenuBar';
 import LocationField from '../components/LocationField';
-import User from '../components/User';
 import Logo from '../../public/icons/icon.svg';
 import UserIco from '../../public/icons/userIcon.svg';
 import Image from 'next/image';
 import './globals.css';
 import ShoppingCard from '../components/ShoppingCart'
 import { CartProvider } from '../context/CartContext';
+import ActiveOrder from "@/app/components/ActiveOrder";
 
 
 const FontInter = Inter({
@@ -22,10 +22,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
 	return (
 		<html lang='en'>
-
 			<body
 				className={`${FontInter.variable} antialiased flex flex-col-reverse sm:flex-col gap-6 mx-12 mt-2`}>
 				<CartProvider>
@@ -48,9 +46,10 @@ export default function RootLayout({ children }) {
 						/>
 					</div>
 				</nav>
-				
+
 				<main className='h-[80vh] overflow-y-auto'>{children}</main>
 				</CartProvider>
+				<ActiveOrder />
 			</body>
 		</html>
 	);
