@@ -31,7 +31,7 @@ const MenuBar = () => {
 				className={clsx(
 					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
 					[
-						currentPage == 'restaurants' &&
+						currentPage == ('restaurants' || 'products') &&
 							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
 					],
 				)}>
