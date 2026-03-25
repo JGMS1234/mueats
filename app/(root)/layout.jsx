@@ -6,6 +6,7 @@ import Logo from './icon.svg';
 import Cart from '../../public/icons/shoppingCart.svg';
 import UserIco from '../../public/icons/userIcon.svg';
 import Image from 'next/image';
+import clsx from 'clsx';
 import './globals.css';
 
 const FontInter = Inter({
@@ -23,12 +24,12 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
 			<body
-				className={`${FontInter.variable} antialiased flex flex-col-reverse sm:flex-col gap-6 mx-12 mt-2`}>
+				className={`${FontInter.variable} antialiased relative flex flex-col gap-6 mx-4 lg:mx-12 mt-2`}>
 				<nav className='flex justify-between items-center w-full h-[10vh]'>
 					<Image
 						src={Logo}
 						alt='MU Eats Logo'
-						className='size-22 md:size-28'
+						className='size-28'
 						priority
 					/>
 					<div className='flex items-center gap-8'>
@@ -37,7 +38,7 @@ export default function RootLayout({ children }) {
 						<Image
 							src={Cart}
 							alt='Shopping Cart'
-							className='size-18 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'
+							className='size-18 hidden lg:inline cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'
 						/>
 						<Image
 							src={UserIco}
@@ -47,6 +48,11 @@ export default function RootLayout({ children }) {
 					</div>
 				</nav>
 				<main className='h-[80vh] overflow-y-auto'>{children}</main>
+				<Image
+					src={Cart}
+					alt='Shopping Cart'
+					className='absolute bottom-4 right-4 size-18 lg:hidden cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'
+				/>
 			</body>
 		</html>
 	);

@@ -42,12 +42,12 @@ const OrderCard = ({
 
 			<div className='flex flex-col gap-2 w-[80%] h-full justify-center bg-(--primary-colour)/50 rounded-r-3xl py-2 px-4'>
 				<div className='flex justify-between'>
-					<span className='hidden md:inline px-1 text-[16px] text-nowrap'>
+					<span className='hidden lg:inline px-1 text-[16px] text-nowrap'>
 						{orderName.length <= 13
 							? orderName
 							: `${orderName.slice(0, 11)}...`}
 					</span>
-					<span className='md:hidden px-1 text-[16px] text-nowrap'>
+					<span className='lg:hidden px-1 text-[16px] text-nowrap'>
 						{orderName.length <= 10 ? orderName : `${orderName.slice(0, 8)}...`}
 					</span>
 					<span className='px-1 text-[16px] text-nowrap'>
