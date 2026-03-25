@@ -25,7 +25,7 @@ const OrderHistory = ({ orders }) => {
 	};
 
 	return (
-		<div className='md:flex md:gap-3 h-full w-full'>
+		<div className='lg:flex lg:gap-3 h-full w-full'>
 			<div className='flex flex-col w-[40%] h-full items-start rounded-2xl gap-3 p-4 bg-(--secondary-colour)/50'>
 				<h1 className='font-semibold text-2xl'>Order History</h1>
 				<p>Some of your recent orders are shown below</p>
@@ -48,14 +48,14 @@ const OrderHistory = ({ orders }) => {
 			</div>
 			<div
 				className={clsx(
-					'w-full h-full md:w-[60%] pb-3 text-lg rounded-3xl bg-(--secondary-colour)/50',
+					'w-full h-full lg:w-[60%] pb-3 text-lg rounded-3xl bg-(--secondary-colour)/50',
 					[
 						!isToggled
-							? 'hidden md:flex flex-col gap-3 items-center'
+							? 'hidden lg:flex flex-col gap-3 items-center'
 							: 'flex flex-col gap-3 items-center',
 					],
 				)}>
-				<div className='w-full relative h-[20%] md:h-[22%]'>
+				<div className='w-full relative h-[20%] lg:h-[22%]'>
 					<Image
 						src={Backdrop}
 						priority
@@ -64,15 +64,15 @@ const OrderHistory = ({ orders }) => {
 					/>
 					<div
 						className={clsx(
-							'absolute md:bottom-0 md:left-3 flex text-base md:text-lg p-4 w-[90%] drop-shadow-md md:w-fit rounded-2xl bg-(--primary-colour)/50 backdrop-blur-2xl',
+							'absolute lg:bottom-0 lg:left-3 flex text-base lg:text-lg p-4 w-[90%] drop-shadow-md lg:w-fit rounded-2xl bg-(--primary-colour)/50 backdrop-blur-2xl',
 							[isToggled && 'top-6 translate-x-[-49.75%] ml-[50%]'],
 						)}>
-						<div className='h-10 w-14 md:h-14 md:w-20 mr-4 flex items-center justify-center border-solid rounded-sm border border-black'>
+						<div className='h-10 w-14 lg:h-14 lg:w-20 mr-4 flex items-center justify-center border-solid rounded-sm border border-black'>
 							Icon
 						</div>
 						<div className='flex flex-col text-nowrap max-w-[80%] overflow-y-auto'>
 							{orders[selectedOrder].orderName}
-							<span className='text-xs md:text-sm font-semibold'>
+							<span className='text-xs lg:text-sm font-semibold'>
 								{`${'Main Campus' || orders[selectedOrder].campusName} | ${
 									orders[selectedOrder].createdAt.toDateString() ==
 									new Date().toDateString()
@@ -83,7 +83,7 @@ const OrderHistory = ({ orders }) => {
 							</span>
 						</div>
 					</div>
-					<div className='absolute hidden md:flex gap-2 drop-shadow-md bottom-0 right-3 px-2 py-1 text-sm font-semibold w-fit bg-(--accent)/75 backdrop-blur-2xl rounded-xl'>
+					<div className='absolute hidden lg:flex gap-2 drop-shadow-md bottom-0 right-3 px-2 py-1 text-sm font-semibold w-fit bg-(--accent)/75 backdrop-blur-2xl rounded-xl'>
 						{`${dateOrTIme(orders[selectedOrder].createdAt)}`}
 						<span>|</span>
 						<div>Payment Method: {orders[selectedOrder].paymentMethod}</div>
@@ -96,7 +96,7 @@ const OrderHistory = ({ orders }) => {
 
 				<div
 					className={clsx(
-						'hidden md:flex justify-center w-full px-3 relative',
+						'hidden lg:flex justify-center w-full px-3 relative',
 					)}>
 					{isWarning && isToggled && (
 						<div
@@ -109,14 +109,11 @@ const OrderHistory = ({ orders }) => {
 					)}
 				</div>
 
-				<div className='relative hidden md:flex flex-col gap-2 overflow-y-auto flex-1 w-full px-3'>
+				<div className='relative hidden lg:flex flex-col gap-2 overflow-y-auto flex-1 w-full px-3'>
 					<ItemCard
 						data={orders[selectedOrder].items}
 						currency={orders[selectedOrder].currency}
-						// handleEditItem={(idx) => handleEdit('items', idx)}
-						isWarning={isWarning}
-						warning={warning}
-						// handleDeleteItem={(idx) => handleItemDelete(idx)}
+						isCart={false}
 					/>
 				</div>
 			</div>

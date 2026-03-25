@@ -17,7 +17,7 @@ export default function Home() {
 					Restaurants tab for more
 				</p>
 			</div>
-			<span className='w-[30vw]'>
+			<span className='w-full lg:w-[30vw]'>
 				<SearchBar />
 			</span>
 			<div className='flex flex-col gap-2 overflow-y-auto'>

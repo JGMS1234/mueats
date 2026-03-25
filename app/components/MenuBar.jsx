@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
+import ShoppingCart from '../../public/icons/shoppingCart.svg';
 import clsx from 'clsx';
 
 const MenuBar = () => {
@@ -12,7 +14,7 @@ const MenuBar = () => {
 		setCurrentPage(currPage);
 	}, [usePathname()]);
 	return (
-		<div className='flex gap-8 items-center mr-[10vw]'>
+		<div className='hidden lg:flex lg:gap-8 items-center lg:mr-[10vw]'>
 			<Link
 				href='/'
 				className={clsx(
