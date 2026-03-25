@@ -1,13 +1,15 @@
 import { Inter } from 'next/font/google';
 import MenuBar from '../components/MenuBar';
 import LocationField from '../components/LocationField';
-import User from '../components/User';
-import Logo from './icon.svg';
-import Cart from '../../public/icons/shoppingCart.svg';
+import Logo from '../../public/icons/icon.svg';
 import UserIco from '../../public/icons/userIcon.svg';
 import Image from 'next/image';
 import clsx from 'clsx';
 import './globals.css';
+import ShoppingCard from '../components/ShoppingCart'
+import { CartProvider } from '../context/CartContext';
+import ActiveOrder from "@/app/components/ActiveOrder";
+
 
 const FontInter = Inter({
 	subsets: ['latin'],
@@ -35,6 +37,8 @@ export default function RootLayout({ children }) {
 					<div className='flex items-center gap-8'>
 						<MenuBar />
 						<LocationField />
+						<ShoppingCard />
+
 						<Image
 							src={Cart}
 							alt='Shopping Cart'
@@ -47,7 +51,10 @@ export default function RootLayout({ children }) {
 						/>
 					</div>
 				</nav>
+
 				<main className='h-[80vh] overflow-y-auto'>{children}</main>
+				</CartProvider>
+				<ActiveOrder />
 				<Image
 					src={Cart}
 					alt='Shopping Cart'

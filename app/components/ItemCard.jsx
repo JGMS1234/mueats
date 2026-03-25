@@ -37,6 +37,7 @@ const ItemCard = ({ data, currency, isCart, handleOrderDelete }) => {
 							</span>
 						))}
 					</div>
+					
 					{isCart ? (
 						<div className='flex flex-col gap-2 pr-3 text-right'>
 							<span className='sticky top-0'>Actions</span>
