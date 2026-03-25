@@ -5,6 +5,7 @@ import Cart from '../../public/icons/shoppingCart.svg';
 import Image from 'next/image';
 import Orders from './Orders'
 import { useCart } from '../context/CartContext';
+import Link from 'next/link';
 
 
 export default function ShoppingCart( ) {
@@ -24,7 +25,7 @@ export default function ShoppingCart( ) {
     </button>
 
       {cartOpen && (
-        <div className="absolute top-20 right-0 w-100 bg-(--primary-colour) p-4 rounded-2xl shadow-lg z-50">
+        <div className="absolute top-20 right-0 w-160 bg-(--primary-colour) p-4 rounded-2xl shadow-lg z-50">
             <h2 className="text-lg font-semibold mb-2">
             Your Cart ({orders.reduce((sum, order) => sum + order.qty, 0)})
             </h2>
@@ -45,6 +46,15 @@ export default function ShoppingCart( ) {
                   <span>
                     {orders.reduce((sum, order) => sum + (order.price * order.qty), 0)}
                   </span>
+                  <span>
+						
+							<Link
+								href='./OrderProgress'
+								className='px-4 py-1 rounded-2xl bg-(--secondary-colour)/75 hover:scale-105 active:scale-95 cursor-pointer transition-all ease-in-out duration-300'>
+									Set Order
+							</Link>
+
+					</span>
                 </div>
               )}
             </div>

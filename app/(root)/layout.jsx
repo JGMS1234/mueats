@@ -7,6 +7,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import './globals.css';
 import ShoppingCard from '../components/ShoppingCart'
+import Link  from 'next/link';
 import { CartProvider } from '../context/CartContext';
 import ActiveOrder from "@/app/components/ActiveOrder";
 
@@ -38,7 +39,8 @@ export default function RootLayout({ children }) {
 						<MenuBar />
 						<LocationField />
 						<ShoppingCard />
-
+					<Link
+						href='./UserSettings'>
 						<Image
 							src={Cart}
 							alt='Shopping Cart'
@@ -49,6 +51,7 @@ export default function RootLayout({ children }) {
 							alt='User icon'
 							className='size-12 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'
 						/>
+					</Link>
 					</div>
 				</nav>
 

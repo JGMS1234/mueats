@@ -15,7 +15,7 @@ export function formatCurrency(amount, currency, large) {
 			);
 		}
 	};
-	if (!large && window.innerWidth < 768) {
+	if (!large && typeof window !== 'undefined'&& window.innerWidth < 768) {
 		if (amount.toString().split('.')[0].length > 12) {
 			return (
 				currency +
