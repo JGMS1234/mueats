@@ -6,7 +6,7 @@ import Image from 'next/image';
 import ShoppingCart from '../../public/icons/shoppingCart.svg';
 import clsx from 'clsx';
 
-const MenuBar = () => {
+const MenuBar = ({ isMobile }) => {
 	const [currentPage, setCurrentPage] = useState('home');
 
 	useEffect(() => {
@@ -14,7 +14,14 @@ const MenuBar = () => {
 		setCurrentPage(currPage);
 	}, [usePathname()]);
 	return (
-		<div className='hidden lg:flex lg:gap-8 items-center lg:mr-[10vw]'>
+		<div
+			className={clsx(
+				[!isMobile && 'hidden lg:flex lg:gap-8 items-center lg:mr-[10vw]'],
+				[
+					isMobile &&
+						'flex fixed bottom-0 py-3 justify-evenly items-center bg-(--secondary-colour) w-full',
+				],
+			)}>
 			<Link
 				href='/'
 				className={clsx(

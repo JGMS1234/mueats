@@ -11,6 +11,12 @@
 	--color-foreground: var(--foreground);
 } */
 
+@utility show-scrollbar {
+	::-webkit-scrollbar {
+		@apply w-1.5 h-1.5;
+	}
+}
+
 /* width */
 ::-webkit-scrollbar {
 	@apply w-0 h-0;

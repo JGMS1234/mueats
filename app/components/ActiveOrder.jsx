@@ -46,7 +46,7 @@ export default function ActiveOrder() {
 	return (
 		<div
 			className={clsx(
-				'fixed z-1000 bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 w-[92vw] max-w-225 px-4 py-3 rounded-3xl bg-(--secondary-colour)/80 backdrop-blur-2xl drop-shadow-lg transition-all duration-300 ease-in-out',
+				'fixed z-1000 bottom-18 lg:bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 w-[92vw] max-w-225 px-4 py-3 rounded-3xl bg-(--secondary-colour)/80 backdrop-blur-2xl drop-shadow-lg transition-all duration-300 ease-in-out',
 				closing ? 'opacity-0 translate-y-6' : 'opacity-100 translate-y-0',
 			)}>
 			<div className='flex flex-col gap-1 overflow-hidden'>

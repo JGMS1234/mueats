@@ -12,7 +12,7 @@ export default function ShoppingCart() {
 	const [cartOpen, setCartOpen] = useState(false);
 
 	return (
-		<div className='relative'>
+		<>
 			<button onClick={() => setCartOpen(!cartOpen)}>
 				<Image
 					src={Cart}
@@ -22,7 +22,7 @@ export default function ShoppingCart() {
 			</button>
 
 			{cartOpen && (
-				<div className='absolute top-20 right-0 w-160 bg-(--primary-colour) p-4 rounded-2xl shadow-lg z-50'>
+				<div className='absolute top-20 left-1/2 -translate-x-1/2 w-[95vw] lg:w-160 bg-(--primary-colour) p-4 rounded-2xl shadow-lg z-1000'>
 					<h2 className='text-lg font-semibold mb-2 flex items-center justify-between'>
 						<span>
 							Your Cart ({orders.reduce((sum, order) => sum + order.qty, 0)})
@@ -46,6 +46,6 @@ export default function ShoppingCart() {
 					</div>
 				</div>
 			)}
-		</div>
+		</>
 	);
 }

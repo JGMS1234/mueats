@@ -43,9 +43,10 @@ const ItemCard = ({ data, currency, isCart, handleOrderDelete }) => {
 						<div className='flex flex-col gap-2 pr-3 text-right'>
 							<span className='sticky top-0'>Actions</span>
 							{data.map((item, index) => (
-								<span className='bg-(--accent)/75 self-center py-1 px-4 rounded-2xl hover:scale-105 active:scale-95 cursor-pointer transition-all ease-in-out duration-200'>
+								<span
+									key={index}
+									className='bg-(--accent)/75 self-center py-1 px-4 rounded-2xl hover:scale-105 active:scale-95 cursor-pointer transition-all ease-in-out duration-200'>
 									<Image
-										key={index}
 										src={Del}
 										alt='Delete'
 										onClick={() => handleOrderDelete(item)}
