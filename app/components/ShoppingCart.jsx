@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Orders from './Orders';
 import { useCart } from '../context/CartContext';
 import Link from 'next/link';
+import clsx from 'clsx';
 
 export default function ShoppingCart() {
 	const { orders } = useCart();
@@ -22,7 +23,15 @@ export default function ShoppingCart() {
 			</button>
 
 			{cartOpen && (
-				<div className='absolute top-20 left-1/2 -translate-x-1/2 w-[95vw] lg:w-160 bg-(--primary-colour) p-4 rounded-2xl shadow-lg z-1000'>
+				<div
+					className={clsx(
+						'absolute top-20 w-[95vw] lg:w-160 bg-(--primary-colour) p-4 rounded-2xl shadow-lg z-1000',
+						[
+							window.innerWidth < 1024
+								? 'left-1/2 -translate-x-1/2'
+								: 'right-0',
+						],
+					)}>
 					<h2 className='text-lg font-semibold mb-2 flex items-center justify-between'>
 						<span>
 							Your Cart ({orders.reduce((sum, order) => sum + order.qty, 0)})
