@@ -45,7 +45,9 @@ const OrderHistory = ({ orders }) => {
 							position={selectedOrder}
 							onclick={() => {
 								setSelectedOrder(index);
-								setIsToggled(true);
+								if (window.innerWidth < 1024) {
+									setIsToggled(true)
+								};
 							}}
 						/>
 					))}
