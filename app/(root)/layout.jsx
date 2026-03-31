@@ -2,15 +2,13 @@ import { Inter } from 'next/font/google';
 import MenuBar from '../components/MenuBar';
 import LocationField from '../components/LocationField';
 import Logo from '../../public/icons/icon.svg';
-import Cart from '../../public/icons/shoppingCart.svg';
 import UserIco from '../../public/icons/userIcon.svg';
 import Image from 'next/image';
-import clsx from 'clsx';
 import './globals.css';
 import ShoppingCard from '../components/ShoppingCart';
 import Link from 'next/link';
 import { CartProvider } from '../context/CartContext';
-import ActiveOrder from '@/app/components/ActiveOrder';
+import ActiveOrder from '../components/ActiveOrder';
 
 const FontInter = Inter({
 	subsets: ['latin'],

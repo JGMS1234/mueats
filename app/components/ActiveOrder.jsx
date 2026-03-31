@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { formatCurrency, formatDate, formatTime } from '../lib/utils';
 import clsx from 'clsx';
 
-export default function ActiveOrder() {
+const ActiveOrder = () => {
 	const router = useRouter();
 	const pathname = usePathname();
 
@@ -76,4 +76,6 @@ export default function ActiveOrder() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default ActiveOrder;
