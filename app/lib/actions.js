@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { redirect } from 'next/navigation';
-const API_BASE_URL = 'http://localhost:5138/api';
-axios.defaults.withCredentials = true;
+const API_BASE_URL =
+	'https://fictional-chainsaw-pjp7746v6pp9f4r4-5138.app.github.dev/api';
+//axios.defaults.withCredentials = true;
 
 export async function handleShoppingCart(action, data, id) {
 	try {
@@ -142,7 +143,8 @@ export async function handleAuth(action, data) {
 		} else if (action == 'signup') {
 			// Register a new user
 			const response = await axios.post(`${API_BASE_URL}/auth/signup`, data);
-			if (response?.status == 200) {
+			if (response?.status == 201 || response?.status == 200) {
+				console.log(response);
 				return response?.data;
 			} else {
 				throw new Error('Failed to register user;', response);

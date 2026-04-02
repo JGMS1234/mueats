@@ -7,10 +7,10 @@ import ShoppingCart from '../../public/icons/shoppingCart.svg';
 import clsx from 'clsx';
 
 const MenuBar = ({ isMobile }) => {
-	const [currentPage, setCurrentPage] = useState('home');
+	const [currentPage, setCurrentPage] = useState('');
 
 	useEffect(() => {
-		const currPage = window.location.pathname.split('/').pop() || 'home';
+		const currPage = window.location.pathname.split('/').pop();
 		setCurrentPage(currPage);
 	}, [usePathname()]);
 	return (
@@ -23,7 +23,7 @@ const MenuBar = ({ isMobile }) => {
 				],
 			)}>
 			<Link
-				href='/'
+				href='/home'
 				className={clsx(
 					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
 					[

@@ -1,8 +1,7 @@
-import { handleAuth } from '../lib/actions';
+import Login from '../components/Login';
 
-export default async function SignIn() {
-	console.log(
-		await handleAuth('login', { email: 'string4', password: 'str123456' }),
-	);
-	return <div>page</div>;
-}
+const page = () => {
+	return <Login />;
+};
+
+export default page;
