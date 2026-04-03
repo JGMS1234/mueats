@@ -8,6 +8,7 @@ export default function Orders({ data }) {
 	return (
 		<ItemCard
 			data={data.map((order) => ({
+				id: order.id, 
 				name: order.name,
 				qty: order.qty,
 				price: order.price,
