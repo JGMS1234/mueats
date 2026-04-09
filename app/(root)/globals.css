@@ -1,9 +1,27 @@
 @import 'tailwindcss';
 
 :root {
+	--accent: #60a5fa;
+	--primary-colour: #1e293b;
+	--secondary-colour: #0f172a;
+	--surface-colour: #111827;
+	--input-colour: #1f2937;
+	--text-primary: #e2e8f0;
+	--text-secondary: #94a3b8;
+	--border-colour: #334155;
+	--background: #020617;
+}
+
+:root[data-theme='light'] {
 	--accent: #187abe;
 	--primary-colour: #c1ff72;
 	--secondary-colour: #efffda;
+	--surface-colour: #efffda;
+	--input-colour: #ffffff;
+	--text-primary: #0f172a;
+	--text-secondary: #334155;
+	--border-colour: #c7e9a2;
+	--background: #ffffff;
 }
 
 /* @theme inline {
@@ -38,6 +56,28 @@
 }
 ::-webkit-scrollbar-thumb:active {
 	@apply cursor-grabbing;
+}
+
+html,
+body {
+	@apply min-h-screen;
+}
+
+body {
+	background:
+		radial-gradient(circle at top, rgb(30 41 59 / 0.32), transparent 48%),
+		var(--background);
+	color: var(--text-primary);
+}
+
+input,
+textarea {
+	color: var(--text-primary);
+}
+
+input::placeholder,
+textarea::placeholder {
+	color: var(--text-secondary);
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -9,6 +9,7 @@ import ShoppingCard from '../components/ShoppingCart';
 import Link from 'next/link';
 import { CartProvider } from '../context/CartContext';
 import ActiveOrder from '../components/ActiveOrder';
+import ThemeToggle from '../components/ThemeToggle';
 
 const FontInter = Inter({
 	subsets: ['latin'],
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
 			<body
 				className={`${FontInter.variable} antialiased relative flex flex-col text-sm lg:text-base gap-2 lg:gap-6 lg:mx-12 mt-2`}>
 				<CartProvider>
-					<nav className='mx-4 lg:mx-0 flex sticky top-2 left-0 lg:relative justify-between items-center lg:w-full h-[10vh]'>
+					<nav className='mx-4 lg:mx-0 flex sticky top-2 left-0 lg:relative justify-between items-center lg:w-full h-[10vh] rounded-3xl px-4 lg:px-0 backdrop-blur-sm bg-(--secondary-colour)/65 border border-(--border-colour)'>
 						<Image
 							src={Logo}
 							alt='MU Eats Logo'
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
 						<div className='flex items-center gap-3 lg:gap-8'>
 							<MenuBar />
 							<LocationField />
+							<ThemeToggle />
 							<ShoppingCard />
 							<Link href='./settings'>
 								<Image

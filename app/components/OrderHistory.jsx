@@ -74,7 +74,7 @@ const OrderHistory = ({ orders }) => {
 							'absolute lg:bottom-0 lg:left-3 flex text-base lg:text-lg p-4 w-[90%] drop-shadow-md lg:w-fit rounded-2xl bg-(--primary-colour)/50 backdrop-blur-2xl',
 							[isToggled && 'top-4 translate-x-[-49.75%] ml-[50%]'],
 						)}>
-						<div className='h-10 w-14 lg:h-14 lg:w-20 mr-4 flex items-center justify-center border-solid rounded-sm border border-black'>
+						<div className='h-10 w-14 lg:h-14 lg:w-20 mr-4 flex items-center justify-center border-solid rounded-sm border border-(--border-colour)'>
 							Icon
 						</div>
 						<div className='flex flex-col text-nowrap max-w-[80%] overflow-y-auto'>

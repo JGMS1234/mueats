@@ -21,7 +21,7 @@ const SearchBar = ({ handleSearch, handleFilter, placeholder }) => {
 					}}
 					value={searchTerm}
 					placeholder={placeholder || 'Search for restaurants, dishes...'}
-					className='w-full bg-(--secondary-colour) placeholder:text-sm text-base font-medium placeholder:font-semibold px-2 py-1 placeholder:pl-2 rounded-3xl hover:scale-95 active:scale-100 transition-all ease-in-out duration-300 focus:ring-0 focus:scale-100 ring-slate-50'
+					className='w-full bg-(--input-colour) border border-(--border-colour) placeholder:text-sm text-base font-medium placeholder:font-semibold px-2 py-1 placeholder:pl-2 rounded-3xl hover:scale-95 active:scale-100 transition-all ease-in-out duration-300 focus:ring-0 focus:scale-100'
 				/>
 			</div>
 

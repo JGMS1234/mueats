@@ -24,7 +24,7 @@ export class Item extends Component {
 						<button
 							type='button'
 							onClick={() => this.props.onAdd(product)}
-							className='bg-(--primary-colour) text-black font-bold py-2 px-4 rounded cursor-pointer hover:scale-100 scale-95 active:scale-95 transition-all duration-200 ease-in-out'>
+							className='bg-(--primary-colour) font-bold py-2 px-4 rounded cursor-pointer border border-(--border-colour) hover:scale-100 scale-95 active:scale-95 transition-all duration-200 ease-in-out'>
 							Add to Cart
 						</button>
 					</div>
