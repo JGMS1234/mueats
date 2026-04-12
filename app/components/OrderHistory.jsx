@@ -7,6 +7,7 @@ import Backdrop from '../../public/images/Backdrop.png';
 import { formatCurrency, formatTime, formatDate } from '../lib/utils';
 import clsx from 'clsx';
 import SearchBar from './SearchBar';
+import { redirect } from 'next/navigation';
 
 const OrderHistory = ({ orders }) => {
 	const [selectedOrder, setSelectedOrder] = useState(0);
@@ -46,8 +47,8 @@ const OrderHistory = ({ orders }) => {
 							onclick={() => {
 								setSelectedOrder(index);
 								if (window.innerWidth < 1024) {
-									setIsToggled(true)
-								};
+									setIsToggled(true);
+								}
 							}}
 						/>
 					))}
@@ -102,11 +103,20 @@ const OrderHistory = ({ orders }) => {
 					</div>
 
 					<button
+						onClick={() => {
+							if (orders[selectedOrder].isActive == undefined) {
+								redirect('/products');
+							} else if (orders[selectedOrder].isActive == true) {
+								redirect('/orderStatus');
+							}
+						}}
 						className={clsx(
 							'text-sm absolute drop-shadow-md lg:top-6 right-3 bg-(--primary-colour) backdrop-blur-lg py-2 px-4 cursor-pointer hover:scale-105 active:scale-100 transition-all ease-in-out duration-300 rounded-2xl',
 							[isToggled && 'bottom-0'],
 						)}>
-						Select items to reorder
+						{orders[selectedOrder].isActive == true
+							? orders[selectedOrder].status
+							: 'Select items to reorder'}
 					</button>
 					<button
 						onClick={() => setIsToggled(false)}

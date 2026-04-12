@@ -2,8 +2,6 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
-import ShoppingCart from '../../public/icons/shoppingCart.svg';
 import clsx from 'clsx';
 
 const MenuBar = ({ isMobile }) => {
@@ -38,7 +36,7 @@ const MenuBar = ({ isMobile }) => {
 				className={clsx(
 					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
 					[
-						currentPage == ('restaurants' || 'products') &&
+						(currentPage == 'restaurants' || currentPage == 'products') &&
 							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
 					],
 				)}>
@@ -49,7 +47,7 @@ const MenuBar = ({ isMobile }) => {
 				className={clsx(
 					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
 					[
-						currentPage == 'orders' &&
+						currentPage.includes('order') &&
 							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
 					],
 				)}>

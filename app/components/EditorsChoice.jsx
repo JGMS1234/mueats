@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import Cafe from '../../public/images/Cafe.png';
+import Link from 'next/link';
 
 const EditorsChoice = () => {
 	return (
-		<div className='w-120 h-30 flex gap-2 relative rounded-4xl items-center py-2 bg-(--primary-colour) cursor-pointer scale-95 hover:scale-100 active:scale-95 transition-all duration-200 ease-in-out'>
+		<Link
+			href={'/products'}
+			className='w-120 h-30 flex gap-2 relative rounded-4xl items-center py-2 bg-(--primary-colour) cursor-pointer scale-95 hover:scale-100 active:scale-95 transition-all duration-200 ease-in-out'>
 			<Image
 				src={Cafe}
 				alt='Cafe Image'
@@ -21,7 +24,7 @@ const EditorsChoice = () => {
 					</span>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

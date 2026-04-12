@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Cart from '../../public/icons/shoppingCart.svg';
 import Image from 'next/image';
 import Orders from './Orders';
@@ -9,8 +9,23 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 export default function ShoppingCart() {
-	const { orders } = useCart();
+	const { orders, isActiveOrder, PlaceOrder } = useCart();
 	const [cartOpen, setCartOpen] = useState(false);
+	const [cart, setCart] = useState([]);
+
+	useEffect(() => {
+		if (orders.length > 0) {
+			setCartOpen(true);
+			setCart(orders);
+		}
+	}, [orders]);
+
+	useEffect(() => {
+		if (isActiveOrder) {
+			setCartOpen(false);
+			setCart([]);
+		}
+	}, [isActiveOrder]);
 
 	return (
 		<>
@@ -34,10 +49,10 @@ export default function ShoppingCart() {
 					)}>
 					<h2 className='text-lg font-semibold mb-2 flex items-center justify-between'>
 						<span>
-							Your Cart ({orders.reduce((sum, order) => sum + order.qty, 0)})
+							Your Cart ({cart.reduce((sum, order) => sum + order.qty, 0)})
 						</span>
-						{orders.length > 0 && (
-							<span>
+						{cart.length > 0 && (
+							<span onClick={PlaceOrder}>
 								<Link
 									href='./orderStatus'
 									className='px-4 py-1 rounded-2xl bg-(--secondary-colour)/75 hover:scale-105 active:scale-95 cursor-pointer transition-all ease-in-out duration-300'>
@@ -47,10 +62,10 @@ export default function ShoppingCart() {
 						)}
 					</h2>
 					<div>
-						{orders.length === 0 ? (
+						{cart.length === 0 ? (
 							<p>Your cart is empty</p>
 						) : (
-							<Orders data={orders} />
+							<Orders data={cart} />
 						)}
 					</div>
 				</div>

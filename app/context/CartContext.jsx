@@ -6,6 +6,8 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
 	const [orders, setOrders] = useState([]);
+	const [activeOrder, setActiveOrder] = useState(null);
+	const [isActiveOrder, setIsActiveOrder] = useState(false);
 
 	function AddToOrder(item) {
 		setOrders((prevOrders) => {
@@ -18,6 +20,12 @@ export function CartProvider({ children }) {
 
 			return [...prevOrders, { ...item, qty: 1 }];
 		});
+	}
+
+	function ClearOrder() {
+		setOrders([]);
+		setActiveOrder(null);
+		setIsActiveOrder(false);
 	}
 
 	function DeleteFromOrder(item) {
@@ -33,8 +41,35 @@ export function CartProvider({ children }) {
 		});
 	}
 
+	function PlaceOrder() {
+		if (orders.length > 0) {
+			setActiveOrder({
+				orderName: 'Order 1',
+				amount: orders.reduce(
+					(total, item) => total + item.price * item.qty,
+					0,
+				),
+				campusName: 'MC',
+				currency: 'HK$',
+				createdAt: new Date(),
+				status: 'Preparing',
+				paymentMethod: 'MU Coin',
+				items: orders,
+			});
+			setIsActiveOrder(true);
+		}
+	}
 	return (
-		<CartContext.Provider value={{ orders, AddToOrder, DeleteFromOrder }}>
+		<CartContext.Provider
+			value={{
+				orders,
+				AddToOrder,
+				DeleteFromOrder,
+				ClearOrder,
+				isActiveOrder,
+				PlaceOrder,
+				activeOrder,
+			}}>
 			{children}
 		</CartContext.Provider>
 	);

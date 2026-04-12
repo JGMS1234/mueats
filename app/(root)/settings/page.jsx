@@ -7,7 +7,11 @@ const SettingsPage = () => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [isEditingAddress, setIsEditingAddress] = useState(false);
 
-	const [info, setInfo] = useState({name: '', email: '', phone: '', password: '',
+	const [info, setInfo] = useState({
+		name: '',
+		email: '',
+		phone: '',
+		password: '',
 	});
 
 	const [address, setAddress] = useState('');
@@ -52,11 +56,15 @@ const SettingsPage = () => {
 	}`;
 
 	return (
-		<div>
-			<h1 className='text-3xl text-center font-bold pb-12'>Account Settings</h1>
+		<div className='flex flex-col gap-6'>
+			<h1 className='text-3xl text-center font-bold'>Account Settings</h1>
 			<div className='flex flex-col lg:flex-row items-center lg:items-start gap-12'>
 				<div>
-					<Image src={ProfilePic} alt='Profile Picture' className='size-48 rounded-full' />
+					<Image
+						src={ProfilePic}
+						alt='Profile Picture'
+						className='size-48 rounded-full'
+					/>
 					<div className='left-12 w-48 h-10 bg-(--secondary-colour) rounded-full pl-8 pt-2 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
 						Set Profile Picture
 					</div>
@@ -64,12 +72,34 @@ const SettingsPage = () => {
 
 				<div className='bg-(--secondary-colour) w-full lg:w-[35%] px-6 py-4 rounded-3xl'>
 					{[
-						{ label: 'Your name', key: 'name', placeholder: 'Steven', type: 'text' },
-						{ label: 'Your email', key: 'email', placeholder: 'user@gmail.com', type: 'email' },
-						{ label: 'Phone Number', key: 'phone', placeholder: '077 123 4567', type: 'tel' },
-						{ label: 'Password', key: 'password', placeholder: '****', type: 'password' },
+						{
+							label: 'Your name',
+							key: 'name',
+							placeholder: 'Steven',
+							type: 'text',
+						},
+						{
+							label: 'Your email',
+							key: 'email',
+							placeholder: 'user@gmail.com',
+							type: 'email',
+						},
+						{
+							label: 'Phone Number',
+							key: 'phone',
+							placeholder: '077 123 4567',
+							type: 'tel',
+						},
+						{
+							label: 'Password',
+							key: 'password',
+							placeholder: '****',
+							type: 'password',
+						},
 					].map(({ label, key, placeholder, type }) => (
-						<div key={key} className='w-full mt-3 mb-6 flex gap-2 py-3 px-4 whitespace-nowrap'>
+						<div
+							key={key}
+							className='w-full mt-3 mb-6 flex gap-2 py-3 px-4 whitespace-nowrap'>
 							<span className='pt-1'>{label}</span>
 							<div className='bg-white w-[80%] rounded-3xl p-2 pl-4 text-sm flex gap-2 items-center'>
 								<input
@@ -78,7 +108,9 @@ const SettingsPage = () => {
 									placeholder={placeholder}
 									value={isEditing ? tempInfo[key] : info[key]}
 									readOnly={!isEditing}
-									onChange={(e) => setTempInfo({ ...tempInfo, [key]: e.target.value })}
+									onChange={(e) =>
+										setTempInfo({ ...tempInfo, [key]: e.target.value })
+									}
 								/>
 							</div>
 						</div>
@@ -110,7 +142,9 @@ const SettingsPage = () => {
 				<div className='flex flex-col w-full lg:flex-1'>
 					<div className='bg-(--secondary-colour) w-full px-6 py-4 rounded-3xl'>
 						<div className='w-full mt-3 mb-6 flex gap-2 py-3 px-4'>
-							<span className='pt-1 whitespace-nowrap'>Saved default delivery address</span>
+							<span className='pt-1 whitespace-nowrap'>
+								Saved default delivery address
+							</span>
 							<div className='bg-white w-[80%] rounded-3xl p-2 pl-4 text-sm flex gap-2 items-center'>
 								<input
 									className={inputClassAddress}
@@ -158,7 +192,6 @@ const SettingsPage = () => {
 						Promotional offers
 					</div>
 				</div>
-
 			</div>
 		</div>
 	);

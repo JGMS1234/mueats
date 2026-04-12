@@ -29,7 +29,11 @@ const OrderCard = ({
 			className={clsx(
 				'flex items-center justify-center w-full h-[25vh] rounded-3xl cursor-pointer drop-shadow-md scale-95 active:scale-100 transition-all ease-in-out duration-300',
 				[position == orderIdx && 'scale-100'],
-				[position != orderIdx && 'hover:scale-94 opacity-85 hover:opacity-100'],
+				[
+					position != orderIdx &&
+						window.innerWidth > 768 &&
+						'hover:scale-94 opacity-85 hover:opacity-100',
+				],
 			)}
 			onClick={() => onclick()}>
 			<div className='h-full w-[20%] py-2 px-4 flex items-center justify-center rounded-l-3xl bg-(--primary-colour)'>

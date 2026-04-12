@@ -1,34 +1,43 @@
-'use client'
+'use client';
 import { useCart } from '../../context/CartContext';
+import Logo from '../../../public/icons/icon.svg';
+import { redirect } from 'next/navigation';
 import Orders from '../../components/Orders';
-import Link from 'next/link';
+import Image from 'next/image';
 
 export default function OrderStatus() {
 	const { orders } = useCart();
+
+	if (orders.length === 0) {
+		redirect('/home');
+	}
 	return (
+		<div className='flex flex-col gap-6 items-center overflow-y-auto'>
+			<div className='flex items-center justify-center'>
+				<Image
+					src={Logo}
+					alt='Logo'></Image>
 
-		<div>
-		Your Orders ({orders.reduce((sum, order) => sum + order.qty, 0)})
-		<div className='my-12 w-[60%]'>
-			<Orders data={orders} />
+				<div className='text-lg px-6 py-8 rounded-3xl'>
+					Thank you for using MU Eats.
+					<br></br>
+					Your order is being prepared and will be delivered soon!
+				</div>
+			</div>
+			Your Orders ({orders.reduce((sum, order) => sum + order.qty, 0)})
+			<div className='w-[60%]'>
+				<Orders
+					data={orders}
+					showDelete={false}
+				/>
+			</div>
+			<div className='text-xl bg-(--secondary-colour) h-40 w-[60%] px-6 py-8 rounded-3xl'>
+				Name: Steven
+				<br></br>
+				Delivery address: 10/F Main Campus
+				<br></br>
+				Phone number: 077 123 4567
+			</div>
 		</div>
-		<div className='text-xl bg-(--secondary-colour) h-40 w-[60%] px-6 py-8 mb-12 rounded-3xl'>
-			Name: Steven 
-			<br></br>
-			Delivery address: 10/F Main Campus 
-			<br></br>
-			Phone number: 077 123 4567
-
-		</div>
-		<Link 
-		href='/orderSet'
-		className='flex items-center justify-center w-60 h-12 rounded-3xl bg-(--primary-colour)/75 hover:scale-105 active:scale-95 cursor-pointer transition-all ease-in-out duration-300'>
-			Purchase and order
-		</Link>
-
-		</div>
-
-	)
-
-};
-
+	);
+}
