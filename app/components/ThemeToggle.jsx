@@ -26,7 +26,7 @@ const ThemeToggle = () => {
 		<button
 			type='button'
 			onClick={handleToggle}
-			aria-label='Toggle theme'
+			aria-label='Toggle Theme'
 			className='h-10 px-4 rounded-3xl text-xs lg:text-sm font-semibold bg-(--primary-colour) border border-(--border-colour) hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'>
 			Toggle theme
 		</button>
