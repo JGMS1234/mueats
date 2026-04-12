@@ -83,6 +83,7 @@ npm start
 1. **Home Page**
    - Navigate to http://localhost:3000/home
    - View available dining options and featured items
+   - Note: Dark mode can be toggled by clicking the user icon on the top right and accessing the user settings page.
 
 2. **Restaurants**
    - Go to `/restaurants` to browse available restaurants
