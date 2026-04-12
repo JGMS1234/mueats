@@ -70,7 +70,7 @@ const ItemCard = ({ data, currency, isCart, handleOrderDelete }) => {
 				</div>
 			</div>
 
-			<div className='flex self-center justify-between drop-shadow-lg fade-in-animation mt-2 py-2 px-4 w-full rounded-3xl bg-(--primary-colour)/75 backdrop-blur-lg'>
+			<div className='flex self-center justify-between drop-shadow-lg fade-in-animation mt-2 py-2 px-4 w-full rounded-3xl bg-(--secondary-colour)/75 backdrop-blur-lg'>
 				<span>Grand Total</span>
 				<span>
 					{formatCurrency(
