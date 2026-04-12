@@ -27,7 +27,7 @@ const OrderCard = ({
 	return (
 		<div
 			className={clsx(
-				'flex items-center justify-center w-full h-[25vh] rounded-3xl cursor-pointer drop-shadow-md md:scale-95 active:scale-100 transition-all ease-in-out duration-300',
+				'flex items-center justify-center w-full h-[25vh] rounded-3xl cursor-pointer drop-shadow-md lg:scale-95 active:scale-100 transition-all ease-in-out duration-300',
 				[position == orderIdx && 'scale-100'],
 				[
 					position != orderIdx &&

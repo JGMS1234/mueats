@@ -1,3 +1,4 @@
+'use client';
 import React, { Component } from 'react';
 import Image from 'next/image';
 
@@ -7,6 +8,11 @@ export class Item extends Component {
 		return (
 			<div
 				key={product.id}
+				onClick={() => {
+					if (typeof window !== 'undefined' && window.innerWidth < 768) {
+						this.props.onAdd(product);
+					}
+				}}
 				className='my-8 w-120 h-30 flex gap-2 relative rounded-4xl items-center py-2 bg-(--primary-colour)'>
 				<Image
 					className='size-20 absolute left-6 rounded-2xl'

@@ -14,7 +14,10 @@ const MenuBar = ({ isMobile }) => {
 	return (
 		<div
 			className={clsx(
-				[!isMobile && 'hidden lg:flex lg:gap-8 items-center lg:mr-[10vw]'],
+				[
+					!isMobile &&
+						'hidden lg:flex lg:gap-8 items-center justify-center flex-1',
+				],
 				[
 					isMobile &&
 						'flex fixed bottom-0 py-3 justify-evenly items-center bg-(--secondary-colour) w-full',
@@ -23,21 +26,18 @@ const MenuBar = ({ isMobile }) => {
 			<Link
 				href='/home'
 				className={clsx(
-					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
-					[
-						currentPage == 'home' &&
-							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
-					],
+					'hover:scale-105 active:scale-95 rounded-3xl transition-all py-2 px-4 duration-200 ease-in-out',
+					[currentPage == 'home' && 'bg-(--primary-colour)'],
 				)}>
 				Home
 			</Link>
 			<Link
 				href='/restaurants'
 				className={clsx(
-					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
+					'hover:scale-105 active:scale-95 rounded-3xl transition-all py-2 px-4 duration-200 ease-in-out',
 					[
 						(currentPage == 'restaurants' || currentPage == 'products') &&
-							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
+							'bg-(--primary-colour)',
 					],
 				)}>
 				Restaurants
@@ -45,11 +45,8 @@ const MenuBar = ({ isMobile }) => {
 			<Link
 				href='/orders'
 				className={clsx(
-					'hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out',
-					[
-						currentPage.includes('order') &&
-							'rounded-3xl py-2 px-4 bg-(--primary-colour)',
-					],
+					'hover:scale-105 active:scale-95 rounded-3xl py-2 px-4 transition-all duration-200 ease-in-out',
+					[currentPage.includes('order') && 'bg-(--primary-colour)'],
 				)}>
 				Orders
 			</Link>

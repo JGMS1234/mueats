@@ -40,7 +40,7 @@ export default function ShoppingCart() {
 			{cartOpen && (
 				<div
 					className={clsx(
-						'absolute top-20 w-[95vw] lg:w-160 bg-(--primary-colour) p-4 rounded-2xl shadow-lg z-1000',
+						'fixed lg:absolute top-20 w-[95vw] lg:w-160 bg-(--primary-colour) p-4 rounded-2xl lg:shadow-lg z-1000',
 						[
 							window.innerWidth < 1024
 								? 'left-1/2 -translate-x-1/2'
