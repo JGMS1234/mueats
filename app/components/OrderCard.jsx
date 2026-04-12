@@ -31,6 +31,7 @@ const OrderCard = ({
 				[position == orderIdx && 'scale-100'],
 				[
 					position != orderIdx &&
+						typeof window !== 'undefined' &&
 						window.innerWidth > 768 &&
 						'hover:scale-94 opacity-85 hover:opacity-100',
 				],
