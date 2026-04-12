@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-:root {
+:root[data-theme='dark'] {
 	--accent: #60a5fa;
 	--primary-colour: #1e293b;
 	--secondary-colour: #0f172a;

@@ -6,6 +6,8 @@ const THEME_KEY = 'mueats-theme';
 
 const ThemeToggle = () => {
 	const [theme, setTheme] = useState(() => {
+		if (typeof window === undefined) return "light";
+
 		const savedTheme = window.localStorage.getItem(THEME_KEY);
 		return savedTheme === 'light' ? 'light' : 'dark';
 	});
