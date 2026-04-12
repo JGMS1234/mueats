@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { handleAuth } from '../lib/actions';
+import Link from 'next/link';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
@@ -61,18 +62,18 @@ const Login = () => {
 					</div>
 					<div className='flex justify-between'>
 						<button className='bg-(--primary-colour) text-black mt-6 w-40 h-12 ml-6 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
-							<span
+							<Link
 								className='text-black px-4 py-2 rounded-md cursor-pointer'
-								onClick={() => handleSignIn()}>
+								href={'/home'}>
 								Sign In
-							</span>
+							</Link>
 						</button>
 						<button className='bg-(--primary-colour) text-black ml-12 mt-6 w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
-						<span
+						<Link
 							className='text-black px-4 py-2 rounded-md cursor-pointer'
-							onClick={handleSignUp}>
+							href={'/home'}>
 							Sign Up
-						</span>
+						</Link>
 					</button>
 					</div>
 					</div>
