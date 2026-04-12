@@ -5,6 +5,8 @@ import { useCart } from '../../context/CartContext';
 const page = () => {
 	const { activeOrder, isActiveOrder } = useCart();
 
+	if (window == undefined) return null;
+
 	return (
 		<OrderHistory
 			orders={
