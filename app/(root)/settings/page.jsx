@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import ToggleTheme from '../../components/ToggleTheme';
 import ProfilePic from '../../../public/icons/ProfilePic.png';
 
 const SettingsPage = () => {
@@ -47,11 +48,11 @@ const SettingsPage = () => {
 		setIsEditingAddress(false);
 	}
 
-	const inputClass = `opacity-75 font-semibold bg-transparent outline-none w-full ${
+	const inputClass = `opacity-75 font-semibold bg-transparent placeholder:text-black/75 text-black outline-none w-full ${
 		isEditing ? 'border-b border-(--primary-colour)' : 'cursor-default'
 	}`;
 
-	const inputClassAddress = `opacity-75 font-semibold bg-transparent outline-none w-full ${
+	const inputClassAddress = `opacity-75 font-semibold bg-transparent placeholder:text-black/75 text-black outline-none w-full ${
 		isEditingAddress ? 'border-b border-(--primary-colour)' : 'cursor-default'
 	}`;
 
@@ -59,15 +60,16 @@ const SettingsPage = () => {
 		<div className='flex flex-col gap-6'>
 			<h1 className='text-3xl text-center font-bold'>Account Settings</h1>
 			<div className='flex flex-col lg:flex-row items-center lg:items-start gap-12'>
-				<div>
+				<div className='flex flex-col gap-4'>
 					<Image
 						src={ProfilePic}
 						alt='Profile Picture'
 						className='size-48 rounded-full'
 					/>
-					<div className='left-12 w-48 h-10 bg-(--secondary-colour) rounded-full pl-8 pt-2 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+					<div className='w-48 h-10 bg-(--secondary-colour) rounded-full pl-8 pt-2 cursor-pointer scale-95 hover:scale-100 active:scale-95 transition-all duration-200 ease-in-out'>
 						Set Profile Picture
 					</div>
+					<ToggleTheme />
 				</div>
 
 				<div className='bg-(--secondary-colour) w-full lg:w-[35%] px-6 py-4 rounded-3xl'>
@@ -121,25 +123,25 @@ const SettingsPage = () => {
 							<>
 								<button
 									onClick={handleSave}
-									className='bg-(--primary-colour) text-black mt-6 w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+									className='bg-(--primary-colour) w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
 									Save
 								</button>
 								<button
 									onClick={handleCancel}
-									className='bg-(--secondary-colour) border text-black mt-6 w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+									className='bg-(--secondary-colour) border w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
 									Cancel
 								</button>
 							</>
 						) : (
 							<button
 								onClick={handleEdit}
-								className='bg-(--primary-colour) text-black mt-6 w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+								className='bg-(--primary-colour) w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
 								Edit
 							</button>
 						)}
 					</div>
 				</div>
-				<div className='flex flex-col w-full lg:flex-1'>
+				<div className='flex flex-col w-full lg:flex-1 gap-8'>
 					<div className='bg-(--secondary-colour) w-full px-6 py-4 rounded-3xl'>
 						<div className='w-full mt-3 mb-6 flex gap-2 py-3 px-4'>
 							<span className='pt-1 whitespace-nowrap'>
@@ -162,12 +164,12 @@ const SettingsPage = () => {
 								<>
 									<button
 										onClick={handleSaveAddress}
-										className='bg-(--primary-colour) text-black mt-6 w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+										className='bg-(--primary-colour) w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
 										Save
 									</button>
 									<button
 										onClick={() => setIsEditingAddress(false)}
-										className='bg-(--secondary-colour) border text-black mt-6 w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+										className='bg-(--secondary-colour) border w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
 										Cancel
 									</button>
 								</>
@@ -175,12 +177,12 @@ const SettingsPage = () => {
 								<>
 									<button
 										onClick={handleEditAddress}
-										className='bg-(--primary-colour) text-black mt-6 w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+										className='bg-(--primary-colour) w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
 										Edit
 									</button>
 									<button
 										onClick={handleDeleteAddress}
-										className='bg-(--primary-colour) text-black mt-6 w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
+										className='bg-(--primary-colour) w-40 h-12 rounded-3xl cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out'>
 										Delete
 									</button>
 								</>
@@ -188,7 +190,7 @@ const SettingsPage = () => {
 						</span>
 					</div>
 
-					<div className='bg-(--secondary-colour) w-full mt-6 px-6 py-4 rounded-3xl'>
+					<div className='bg-(--secondary-colour) w-full px-6 py-4 rounded-3xl'>
 						Promotional offers
 					</div>
 				</div>
